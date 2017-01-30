@@ -122,5 +122,4 @@ public class Screen {
 				+ noOfRegularSeats + ", noOfPremiumSeats=" + noOfPremiumSeats
 				+ ", showingTypes=" + showingTypes + "]";
 	}
-
 }

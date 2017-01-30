@@ -38,5 +38,4 @@ public class ScreenTest {
 		screen.setNoOfPremiumSeats(30);
 		Assert.assertEquals(30, screen.getNoOfPremiumSeats());
 	}
-
 }
