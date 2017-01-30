@@ -48,7 +48,7 @@ public class CustomerTest {
 	@Test
 	public void testSetEmail() {
 		Customer testCustomer = new Customer("Coolin", "McCool", "Cmail@mail.com", 071231231, "13/11/55", "password", "Basic");
-		testCustomer.setSurname("Coolin@mail.com");
+		testCustomer.setEmail("Coolin@mail.com");
 		String email = testCustomer.getEmail();
 		assertEquals(email, "Coolin@mail.com");
 	}
@@ -87,7 +87,7 @@ public class CustomerTest {
 	public void testGetPassword() {
 		Customer testCustomer = new Customer("Coolin", "McCool", "Cmail@mail.com", 071231231, "13/11/55", "password", "Basic");
 		String pword = testCustomer.getPassword();
-		assertEquals(pword, "password");
+		assertEquals("password", pword);
 	}
 	
 	@Test
@@ -102,7 +102,7 @@ public class CustomerTest {
 	public void testGetAccountType() {
 		Customer testCustomer = new Customer("Coolin", "McCool", "Cmail@mail.com", 071231231, "13/11/55", "password", "Basic");
 		String aType = testCustomer.getAccountType();
-		assertEquals(aType, "basic");
+		assertEquals(aType, "Basic");
 	}
 	
 	@Test

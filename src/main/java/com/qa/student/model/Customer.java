@@ -10,11 +10,19 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class Customer {
 
+
+	
 	public Customer(String firstName, String surname, String email, int phone,
 			String dateOfBirth, String password, String accountType) {
-		// TODO Auto-generated constructor stub
+		this.firstName = firstName;
+		this.surname = surname;
+		this.email = email;
+		this.phone = phone;
+		this.dateOfBirth = dateOfBirth;
+		this.password = password;
+		this.accountType = accountType;
 	}
-	
+
 	@Id
 	@GeneratedValue
 	private int customer_ID;
