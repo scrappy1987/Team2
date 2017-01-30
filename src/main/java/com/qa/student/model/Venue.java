@@ -1,5 +1,4 @@
 package com.qa.student.model;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -19,9 +18,8 @@ public class Venue {
 	@NotNull
 	private int capacity;
 	
-	public Venue() {
-
-	}
+	public Venue(){}
+	
 	public Long getId() {
 		return id;
 	}
