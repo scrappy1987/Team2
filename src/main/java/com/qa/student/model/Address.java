@@ -1,14 +1,22 @@
 package com.qa.student.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Address {
 	//attributes
+	@Id
+	@GeneratedValue
+	private int Address_id;
+	@NotNull
 	private String FirstLine;
 	private String SecondLine;
 	private String TownCity;
 	private String County;
+	@NotNull
 	private String Postcode;
 	
 	//Constructors
