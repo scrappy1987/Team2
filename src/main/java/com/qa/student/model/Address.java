@@ -1,6 +1,8 @@
 package com.qa.student.model;
 
+import javax.persistence.Entity;
 
+@Entity
 public class Address {
 	//attributes
 	private String FirstLine;
