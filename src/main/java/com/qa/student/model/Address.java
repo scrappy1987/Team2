@@ -1,62 +1,70 @@
 package com.qa.student.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Address {
 	//attributes
-	private String FirstLine;
-	private String SecondLine;
-	private String TownCity;
-	private String County;
-	private String Postcode;
+	@Id
+	@GeneratedValue
+	private int addressId;
+	@NotNull
+	private String firstLine;
+	private String secondLine;
+	private String townCity;
+	private String county;
+	@NotNull
+	private String postcode;
 	
 	//Constructors
 	public Address(){
 		
 	}
 	public Address(String firstLine, String secondLine, String townCity, String county, String postcode) {
-		FirstLine = firstLine;
-		SecondLine = secondLine;
-		TownCity = townCity;
-		County = county;
-		Postcode = postcode;
+		firstLine = firstLine;
+		secondLine = secondLine;
+		townCity = townCity;
+		county = county;
+		postcode = postcode;
 	}
 	public Address(String firstLine, String postcode) {
-		FirstLine = firstLine;
-		Postcode = postcode;
+		firstLine = firstLine;
+		postcode = postcode;
 	}
 	
 	//methods
 	public String getFirstLine() {
-		return FirstLine;
+		return firstLine;
 	}
 	public void setFirstLine(String firstLine) {
-		FirstLine = firstLine;
+		firstLine = firstLine;
 	}
 	public String getSecondLine() {
-		return SecondLine;
+		return secondLine;
 	}
 	public void setSecondLine(String secondLine) {
-		SecondLine = secondLine;
+		secondLine = secondLine;
 	}
 	public String getTownCity() {
-		return TownCity;
+		return townCity;
 	}
 	public void setTownCity(String townCity) {
-		TownCity = townCity;
+		townCity = townCity;
 	}
 	public String getCounty() {
-		return County;
+		return county;
 	}
 	public void setCounty(String county) {
-		County = county;
+		county = county;
 	}
 	public String getPostcode() {
-		return Postcode;
+		return postcode;
 	}
 	public void setPostcode(String postcode) {
-		Postcode = postcode;
+		postcode = postcode;
 	}
 	
 	
