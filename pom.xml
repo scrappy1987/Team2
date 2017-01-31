@@ -71,6 +71,13 @@
     </dependencyManagement>
 
     <dependencies>
+    	<!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+<dependency>
+    <groupId>org.mockito</groupId>
+    <artifactId>mockito-core</artifactId>
+    <version>2.7.0</version>
+</dependency>
+
 
         <!-- First declare the APIs we depend on and need for compilation. All 
             of them are provided by JBoss EAP 6 -->
