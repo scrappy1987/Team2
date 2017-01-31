@@ -6,8 +6,8 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Venue {
-	
+public class Venue
+{	
 	@Id
 	@GeneratedValue
 	private int venueId;
