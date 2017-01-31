@@ -120,13 +120,7 @@ public class Customer {
 		
 	}
 	
-	public int getAddressID() {
-		return addressId;
-	}
 
-	public void setAddress_ID(int addressID) {
-		this.addressId = addressID;
-	}
 
 	public int getCustomer_ID() {
 		return customerId;
