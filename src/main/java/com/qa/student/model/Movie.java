@@ -10,12 +10,12 @@ public class Movie {
 	
 	@Id
 	@GeneratedValue
-	private int movie_ID;
+	private int movieId;
 	
 	@NotNull
 	private String title;
 	@NotNull
-	private String description;
+	private String description; 
 	@NotNull
 	private String genre;
 	@NotNull
@@ -31,11 +31,11 @@ public class Movie {
 		certification = "";
 	}
 		
-	public int getMovie_ID() {
-		return movie_ID;
+	public int getMovieId() {
+		return movieId;
 	}
-	public void setMovie_ID(int movie_ID) {
-		this.movie_ID = movie_ID;
+	public void setMovieId(int movieId) {
+		this.movieId = movieId;
 	}
 	public String getTitle() {
 		return title;
