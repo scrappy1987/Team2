@@ -1,10 +1,12 @@
-package com.qa.student.model;
+package com.qa.student.service.entities;
 
 import javax.persistence.Entity;
 /*import javax.persistence.GeneratedValue;
 import javax.persistence.Id;*/
 
 import javax.validation.constraints.NotNull;
+
+import com.qa.student.service.entities.enums.SeatType;
 
 /* 
  *
@@ -26,10 +28,9 @@ public class Ticket
 	@NotNull
 	private int column;
 	@NotNull
-	private String type;
+	private SeatType type;
 
-	
-	public Ticket(Long showingID, Long bookingID, int row, int column, String type)
+	public Ticket(Long showingID, Long bookingID, int row, int column, SeatType type)
 	{
 		this.showingId = showingID;
 		this.bookingId = bookingID;
@@ -70,11 +71,11 @@ public class Ticket
 		this.column = column;
 	}
 
-	public String getType() {
+	public SeatType getType() {
 		return type;
 	}
 
-	public void setType(String type) {
+	public void setType(SeatType type) {
 		this.type = type;
 	}
 	
