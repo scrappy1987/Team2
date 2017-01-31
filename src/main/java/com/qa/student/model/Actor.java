@@ -1,12 +1,13 @@
 package com.qa.student.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 /*
- * MADE BY JOHN
+ *  @AUTHOR John Whittaker
  * 
  * 
  */
@@ -17,7 +18,10 @@ public class Actor {
 	
 	@Id
 	@GeneratedValue
-	private Long actorID;
+	@Column(name = "actor_id")
+	private Long actorId;
+	
+	
 	
 	@NotNull
 	private String firstName;

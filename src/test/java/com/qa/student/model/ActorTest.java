@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 /*
- *  MADE BY JOHN
+ *  @AUTHOR John Whittaker
  * 
  * 
  */
