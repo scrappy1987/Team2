@@ -1,4 +1,4 @@
-package com.qa.student.model;
+package com.qa.student.service.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
