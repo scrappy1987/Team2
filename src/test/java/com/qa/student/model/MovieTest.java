@@ -14,13 +14,13 @@ public class MovieTest {
 
 	@Test
 	public void getmovieIDTest() {
-		assertEquals(0, testMovie.getMovie_ID());
+		assertEquals(0, testMovie.getMovieId());
 	}
 	
 	@Test
 	public void setMovieIDTest() {
-		testMovie.setMovie_ID(1);
-		assertEquals(1, testMovie.getMovie_ID());
+		testMovie.setMovieId(1);
+		assertEquals(1, testMovie.getMovieId());
 	}
 
 	@Test

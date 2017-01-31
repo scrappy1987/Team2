@@ -5,6 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
+/*
+ * @Author: Lei-Mei Hoang
+ */
+
 @Entity
 public class Movie {
 	
