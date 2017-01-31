@@ -3,7 +3,8 @@ package com.qa.student.model;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.qa.student.model.Screen.ShowingTypes;
+import com.qa.student.service.entities.Screen;
+import com.qa.student.service.entities.Screen.ShowingTypes;
 
 /**
  * 
