@@ -16,10 +16,10 @@ import javax.validation.constraints.NotNull;
 public class Ticket
 {
 	@NotNull
-	private Long ShowingID;
+	private Long showingId;
 	
 	@NotNull
-	private Long BookingID;
+	private Long bookingId;
 	
 	@NotNull
 	private int row;
@@ -31,27 +31,27 @@ public class Ticket
 	
 	public Ticket(Long showingID, Long bookingID, int row, int column, String type)
 	{
-		ShowingID = showingID;
-		BookingID = bookingID;
+		this.showingId = showingID;
+		this.bookingId = bookingID;
 		this.row = row;
 		this.column = column;
 		this.type = type;
 	}
 
-	public Long getShowingID() {
-		return ShowingID;
+	public Long getshowingId() {
+		return showingId;
 	}
 
-	public void setShowingID(Long showingID) {
-		ShowingID = showingID;
+	public void setShowingId(Long showingID) {
+		this.showingId = showingID;
 	}
 
-	public Long getBookingID() {
-		return BookingID;
+	public Long getBookingId() {
+		return bookingId;
 	}
 
 	public void setBookingID(Long bookingID) {
-		BookingID = bookingID;
+		this.bookingId = bookingID;
 	}
 
 	public int getRow() {
