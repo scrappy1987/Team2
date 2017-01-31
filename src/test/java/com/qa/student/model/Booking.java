@@ -1,6 +1,7 @@
 package com.qa.student.model;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 /*
@@ -10,6 +11,7 @@ import javax.validation.constraints.NotNull;
 public class Booking {
 	
 	@NotNull
+	@Id
 	private long BookingId;
 	
 	@NotNull
@@ -17,6 +19,8 @@ public class Booking {
 	
 	@NotNull
 	private long showingId;
+	
+	public Booking(){}
 	
 	public Booking(long BookingId, long CustomerId, long showingId) {
 		this.BookingId = BookingId;
