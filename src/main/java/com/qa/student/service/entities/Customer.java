@@ -1,4 +1,4 @@
-package com.qa.student.model;
+package com.qa.student.service.entities;
 
 /*
 * @AUTHOR: JAI KANABAR

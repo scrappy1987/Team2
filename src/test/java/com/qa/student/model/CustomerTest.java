@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import com.qa.student.service.entities.Customer;
+
 public class CustomerTest {
 	
 	

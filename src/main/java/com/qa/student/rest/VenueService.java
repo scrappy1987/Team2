@@ -10,7 +10,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.qa.student.model.Venue;
+import com.qa.student.service.entities.Venue;
 
 @Path("/venues")
 @RequestScoped
