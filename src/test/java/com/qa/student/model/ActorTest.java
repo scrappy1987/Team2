@@ -10,7 +10,7 @@ import org.junit.Test;
  * 
  */
 
-public class ActorsTest {
+public class ActorTest {
 
 	@Test
 	public void testGetFirstName() {
