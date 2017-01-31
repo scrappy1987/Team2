@@ -1,9 +1,17 @@
 package com.qa.student.model;
 
+/*
+* @AUTHOR: JAI KANABAR
+*/ 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 
@@ -11,6 +19,7 @@ import javax.validation.constraints.NotNull;
 public class Customer {
 
 
+	public Customer(){}
 	
 	public Customer(String firstName, String surname, String email, int phone,
 			String dateOfBirth, String password, String accountType) {
@@ -25,9 +34,13 @@ public class Customer {
 
 	@Id
 	@GeneratedValue
-	private int customer_ID;
-
-	private int address_ID;
+	@Column(name = "customer_id")
+	private int customerId;
+	
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="customer_address_id", referencedColumnName= "addressId")
+	private Address address;
 	
 	@Column(name = "first_name")
 	@NotNull
@@ -107,20 +120,20 @@ public class Customer {
 		
 	}
 	
-	public int getAddress_ID() {
-		return address_ID;
+	public int getAddressID() {
+		return addressId;
 	}
 
-	public void setAddress_ID(int address_ID) {
-		this.address_ID = address_ID;
+	public void setAddress_ID(int addressID) {
+		this.addressId = addressID;
 	}
 
 	public int getCustomer_ID() {
-		return customer_ID;
+		return customerId;
 	}
 
-	public void setCustomer_ID(int customer_ID) {
-		this.customer_ID = customer_ID;
+	public void setCustomer_ID(int customerID) {
+		this.customerId = customerID;
 	}
 
 }
