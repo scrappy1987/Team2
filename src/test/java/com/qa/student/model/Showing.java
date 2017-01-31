@@ -3,8 +3,13 @@ package com.qa.student.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
+/*
+ * @Author Colin Heyl
+ */
 @Entity
 public class Showing
 {
@@ -12,14 +17,20 @@ public class Showing
 	@GeneratedValue
 	private int showingId;
 	
+	@ManyToOne
+	@JoinColumn	(name="screen_Id", referencedColumnName = "screen_Id",nullable=false)
 	@NotNull
-	private int screenId;
+	private Screen screenId;
 
+	@ManyToOne
+	@JoinColumn	(name="movie_Id", referencedColumnName = "movie_Id",nullable=false)
 	@NotNull
-	private int movieId;
+	private Movie movieId;
 	
+	@ManyToOne
+	@JoinColumn	(name="event_Id", referencedColumnName = "event_Id", nullable=false)
 	@NotNull
-	private int eventId;
+	private Event eventId;
 	
 	@NotNull
 	private String startTime;
@@ -30,9 +41,10 @@ public class Showing
 	@NotNull
 	private String languages;
 	
+	public Showing(){ }
 
-	public Showing(int showingId, int screenId, int movieId,
-			int eventId,String startTime, String date,String languages) 
+	public Showing(int showingId, Screen screenId, Movie movieId,
+			Event eventId,String startTime, String date,String languages) 
 	{
 		this.showingId = showingId;
 		this.screenId = screenId;
@@ -53,32 +65,32 @@ public class Showing
 		this.showingId = showingId;
 	}
 
-	public int getScreenId()
+	public Screen getScreenId()
 	{
 		return screenId;
 	}
 
-	public void setScreenId(int screenId)
+	public void setScreenId(Screen screenId)
 	{
 		this.screenId = screenId;
 	}
 
-	public int getMovieId()
+	public Movie getMovieId()
 	{
 		return movieId;
 	}
 
-	public void setMovieId(int movieId)
+	public void setMovieId(Movie movieId)
 	{
 		this.movieId = movieId;
 	}
 
-	public int getEventId()
+	public Event getEventId()
 	{
 		return eventId;
 	}
 
-	public void setEventId(int eventId)
+	public void setEventId(Event eventId)
 	{
 		this.eventId = eventId;
 	}

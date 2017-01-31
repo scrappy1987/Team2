@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 /*
- * Author: Colin Heyl
+ * @Author Colin Heyl
  */
 public class ShowingTests
 {
