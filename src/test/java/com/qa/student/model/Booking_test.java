@@ -2,8 +2,9 @@ package com.qa.student.model;
 
 import static org.junit.Assert.*;
 
-
 import org.junit.Test;
+
+import com.qa.student.service.entities.Booking;
 
 public class Booking_test {
 
