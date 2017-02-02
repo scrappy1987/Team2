@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 /*
@@ -31,6 +32,9 @@ public class Showing
 	@JoinColumn	(name="event_Id", referencedColumnName = "event_Id", nullable=false)
 	@NotNull
 	private Event eventId;
+	
+	@OneToMany
+	@JoinColumn ()
 	
 	@NotNull
 	private String startTime;

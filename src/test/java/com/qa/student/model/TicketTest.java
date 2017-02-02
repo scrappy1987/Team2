@@ -15,7 +15,7 @@ public class TicketTest {
 	@Test
 	public void testTicketRow()
 	{
-		Ticket ticket = new Ticket(1l, 1l, 1, 1, SeatType.STANDARD);
+		Ticket ticket = new Ticket(null, null, 1, 1, SeatType.STANDARD);
 		ticket.setRow(2);
 		assertEquals("Error, does not return a ticket row", ticket.getRow(), 2);
 	}
@@ -23,7 +23,7 @@ public class TicketTest {
 	@Test
 	public void testTicketColumn()
 	{
-		Ticket ticket = new Ticket(1l, 1l, 1, 1, SeatType.PREMIUM);
+		Ticket ticket = new Ticket(null, null, 1, 1, SeatType.PREMIUM);
 		ticket.setColumn(3);
 		assertEquals("Error, does not return a ticket column", ticket.getColumn(), 3);
 	}
@@ -31,7 +31,7 @@ public class TicketTest {
 	@Test
 	public void testTicketType()
 	{
-		Ticket ticket = new Ticket(1l, 1l, 1, 1, SeatType.STANDARD);
+		Ticket ticket = new Ticket(null, null, 1, 1, SeatType.STANDARD);
 		ticket.setType(SeatType.PREMIUM);
 		assertEquals("Error, does not confirm whether the ticket is Premium or not", ticket.getType(), SeatType.PREMIUM);
 	}

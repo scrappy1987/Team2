@@ -32,15 +32,32 @@ public class Customer {
 		this.accountType = accountType;
 	}
 
+
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="customer_address_id", referencedColumnName= "addressId")
+	private Address address;
+	
 	@Id
 	@GeneratedValue
 	@Column(name = "customer_id")
 	private int customerId;
 	
 	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="customer_address_id", referencedColumnName= "addressId")
-	private Address address;
+	public int getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 	
 	@Column(name = "first_name")
 	@NotNull
