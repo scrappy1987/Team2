@@ -33,6 +33,4 @@ public class TestData {
 	public void setTickets(List<Ticket> tickets) {
 		this.tickets = tickets;
 	}
-	
-	
 }
