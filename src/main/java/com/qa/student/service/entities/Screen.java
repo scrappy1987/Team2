@@ -20,8 +20,8 @@ public class Screen {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "screen_ID")
-	private Long screenID;
+	@Column(name = "screen_id")
+	private Long screenId;
 
 	@Column(name = "regularSeats")
 	@NotNull
@@ -39,21 +39,21 @@ public class Screen {
 
 	}
 
-	public Screen(Long screenID, int noOfRegularSeats, int noOfPremiumSeats,
+	public Screen(Long screenId, int noOfRegularSeats, int noOfPremiumSeats,
 			ShowingTypes showingTypes) {
 		super();
-		this.screenID = screenID;
+		this.screenId = screenId;
 		this.noOfRegularSeats = noOfRegularSeats;
 		this.noOfPremiumSeats = noOfPremiumSeats;
 		this.showingTypes = showingTypes;
 	}
 
-	public Long getScreenID() {
-		return screenID;
+	public Long getScreenId() {
+		return screenId;
 	}
 
-	public void setScreenID(Long screenID) {
-		this.screenID = screenID;
+	public void setScreenID(Long screenId) {
+		this.screenId = screenId;
 	}
 
 	public void setNoOfRegularSeats(int noOfRegularSeats) {
@@ -87,7 +87,7 @@ public class Screen {
 		result = prime * result + noOfPremiumSeats;
 		result = prime * result + noOfRegularSeats;
 		result = prime * result
-				+ ((screenID == null) ? 0 : screenID.hashCode());
+				+ ((screenId == null) ? 0 : screenId.hashCode());
 		result = prime * result
 				+ ((showingTypes == null) ? 0 : showingTypes.hashCode());
 		return result;
@@ -106,10 +106,10 @@ public class Screen {
 			return false;
 		if (noOfRegularSeats != other.noOfRegularSeats)
 			return false;
-		if (screenID == null) {
-			if (other.screenID != null)
+		if (screenId == null) {
+			if (other.screenId != null)
 				return false;
-		} else if (!screenID.equals(other.screenID))
+		} else if (!screenId.equals(other.screenId))
 			return false;
 		if (showingTypes != other.showingTypes)
 			return false;
@@ -118,7 +118,7 @@ public class Screen {
 
 	@Override
 	public String toString() {
-		return "Screen [screenID=" + screenID + ", noOfRegularSeats="
+		return "Screen [screenID=" + screenId + ", noOfRegularSeats="
 				+ noOfRegularSeats + ", noOfPremiumSeats=" + noOfPremiumSeats
 				+ ", showingTypes=" + showingTypes + "]";
 	}

@@ -2,6 +2,8 @@ package com.qa.student.service.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 /*
@@ -14,7 +16,8 @@ public class Booking {
 	@Id
 	private long BookingId;
 	
-	@NotNull
+	@ManyToOne
+	@JoinColumn(name = "customer_id")
 	private long CustomerId;
 	
 	@NotNull
