@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 /*import javax.persistence.GeneratedValue;
 import javax.persistence.Id;*/
 
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 import com.qa.student.service.entities.enums.SeatType;
@@ -17,11 +19,16 @@ import com.qa.student.service.entities.enums.SeatType;
 @Entity
 public class Ticket
 {
-	@NotNull
-	private Long showingId;
 	
+	@ManyToOne
+	@JoinColumn(name="showing_id")
 	@NotNull
-	private Long bookingId;
+	private Showing showingId;
+	
+	@ManyToOne
+	@JoinColumn(name ="booking_id")
+	@NotNull
+	private Booking bookingId;
 	
 	@NotNull
 	private int row;
@@ -30,7 +37,7 @@ public class Ticket
 	@NotNull
 	private SeatType type;
 
-	public Ticket(Long showingID, Long bookingID, int row, int column, SeatType type)
+	public Ticket(Showing showingID, Booking bookingID, int row, int column, SeatType type)
 	{
 		this.showingId = showingID;
 		this.bookingId = bookingID;
@@ -39,19 +46,19 @@ public class Ticket
 		this.type = type;
 	}
 
-	public Long getshowingId() {
+	public Showing getshowingId() {
 		return showingId;
 	}
 
-	public void setShowingId(Long showingID) {
+	public void setShowingId(Showing showingID) {
 		this.showingId = showingID;
 	}
 
-	public Long getBookingId() {
+	public Booking getBookingId() {
 		return bookingId;
 	}
 
-	public void setBookingID(Long bookingID) {
+	public void setBookingID(Booking bookingID) {
 		this.bookingId = bookingID;
 	}
 
@@ -78,6 +85,7 @@ public class Ticket
 	public void setType(SeatType type) {
 		this.type = type;
 	}
+	
 	
 	
 }

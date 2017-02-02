@@ -18,7 +18,7 @@ public class TestData {
 	@PostConstruct
 	public void setupTestData(){
 		tickets = new ArrayList<Ticket>();
-		tickets.add(new Ticket(0l, 0l, 1, 1, SeatType.STANDARD));
+		tickets.add(new Ticket(null, null, 1, 1, SeatType.STANDARD));
 	}
 
 	public List<Ticket> getTickets() {

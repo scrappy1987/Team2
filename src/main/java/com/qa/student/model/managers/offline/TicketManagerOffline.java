@@ -10,6 +10,10 @@ import com.qa.student.model.managers.TicketManager;
 import com.qa.student.service.entities.Ticket;
 import com.qa.student.util.TestData;
 
+/*
+ * Author: Rupert Langford
+*/
+
 @Default
 @Stateless
 public class TicketManagerOffline implements TicketManager {
