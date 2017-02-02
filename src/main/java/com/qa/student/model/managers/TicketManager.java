@@ -1,8 +1,12 @@
 package com.qa.student.model.managers;
 
-import java.util.List;
+//import java.util.List;
 
 import com.qa.student.service.entities.Ticket;
+
+/*
+ * Author: Rupert Langford
+*/
 
 public interface TicketManager {
 	public void CreateTicket(Ticket ticket);

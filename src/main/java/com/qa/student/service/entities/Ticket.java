@@ -78,6 +78,4 @@ public class Ticket
 	public void setType(SeatType type) {
 		this.type = type;
 	}
-	
-	
 }

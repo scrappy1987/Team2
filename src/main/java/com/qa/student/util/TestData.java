@@ -10,6 +10,11 @@ import javax.ejb.Startup;
 import com.qa.student.service.entities.Ticket;
 import com.qa.student.service.entities.enums.SeatType;
 
+/*
+ * Initial Author: Rupert Langford
+ * Contributing Authors: 
+*/
+
 @Startup
 @Singleton
 public class TestData {
