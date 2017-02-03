@@ -9,8 +9,6 @@ import javax.enterprise.inject.Default;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-import org.hibernate.validator.constraints.Email;
-
 import com.qa.student.model.managers.TicketServiceManager;
 import com.qa.student.service.entities.Ticket;
 import com.qa.student.service.entities.enums.SeatType;
@@ -27,7 +25,8 @@ public class TicketManagerOnline implements TicketServiceManager {
 	}
 
 	@Override
-	public Ticket readTicket(long showingOrBookingId) { //does not need to be implemented. Method not in use
+	@Deprecated
+	public Ticket readTicket(long showingOrBookingId) { //does not need to be implemented. Method not in use.
 		return null;
 	}
 
