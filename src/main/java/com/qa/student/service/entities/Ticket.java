@@ -1,10 +1,13 @@
 package com.qa.student.service.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import com.qa.student.service.entities.enums.SeatType;
@@ -23,6 +26,7 @@ import com.qa.student.service.entities.enums.SeatType;
 	@NamedQuery(name="ticket_findBySeat", query="SELECT t FROM Tickets t WHERE t.column=:column AND t.row=:row")
 	//@NamedQuery(name="ticket_readTicket", query="SELECT t FROM Tickets t WHERE t.showingOrBookingId=:showingOrBookingId")
 })
+@Table(name="Tickets")
 public class Ticket {
 	public static final String findBySeatType = "ticket_findBySeatType";
 	public static final String readTicketSID = "ticket_readTicketSID";
@@ -34,6 +38,8 @@ public class Ticket {
 	@NotNull
 	private Long ticketId;
 	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="showingid")
 	@NotNull
 	private Long showingId;
 	
@@ -57,6 +63,8 @@ public class Ticket {
 		this.column = column;
 		this.type = type;
 	}
+	
+	public Ticket() { }
 
 	public Long getTicketId()
 	{
