@@ -25,6 +25,11 @@ public class TestData {
 		tickets = new ArrayList<Ticket>();
 		tickets.add(new Ticket(0l, 0l, 0l, 1, 1, SeatType.STANDARD));
 		tickets.add(new Ticket(1l, 1l, 1l, 2, 2, SeatType.PREMIUM));
+		tickets.add(new Ticket(2l, 2l, 2l, 3, 3, SeatType.STANDARD));
+		tickets.add(new Ticket(3l, 3l, 3l, 4 ,4, SeatType.STANDARD));
+		tickets.add(new Ticket(4l, 4l, 4l, 5 ,5, SeatType.STANDARD));
+		tickets.add(new Ticket(5l, 5l, 5l, 6 ,6, SeatType.STANDARD));
+		
 	}
 
 	public List<Ticket> getTickets() {
