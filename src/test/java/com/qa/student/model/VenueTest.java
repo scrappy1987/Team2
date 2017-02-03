@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import com.qa.student.service.entities.Address;
 import com.qa.student.service.entities.Venue;
 
 public class VenueTest {
@@ -21,8 +22,7 @@ public class VenueTest {
 	@Test
 	public void GetSetAddressIdtest() {
 		venue = new Venue();
-		venue.setAddressId(3);
-		int result = venue.getAddressId();
+		Address result = venue.getAddressId();
 		assertEquals(3 , result);
 	}
 	

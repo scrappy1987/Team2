@@ -4,6 +4,9 @@ import javax.persistence.Entity;
 /*import javax.persistence.GeneratedValue;
 import javax.persistence.Id;*/
 
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
@@ -19,13 +22,17 @@ import com.qa.student.service.entities.enums.SeatType;
 @Entity
 public class Ticket
 {
+	@Id
+	@NotNull
+	@GeneratedValue
+	private long ticketId;
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="showing_id")
 	@NotNull
 	private Showing showingId;
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name ="booking_id")
 	@NotNull
 	private Booking bookingId;

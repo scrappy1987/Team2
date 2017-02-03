@@ -1,6 +1,9 @@
 package com.qa.student.service.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -18,24 +21,25 @@ public class Showing
 	@GeneratedValue
 	private int showingId;
 	
-	@ManyToOne
-	@JoinColumn	(name="screen_Id", referencedColumnName = "screen_Id",nullable=false)
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn	(name="screen_Id", referencedColumnName = "screenId",nullable=false)
 	@NotNull
 	private Screen screenId;
 
-	@ManyToOne
-	@JoinColumn	(name="movie_Id", referencedColumnName = "movie_Id",nullable=false)
-	@NotNull
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn	(name="movie_Id", referencedColumnName = "movieId")
 	private Movie movieId;
 	
-	@ManyToOne
-	@JoinColumn	(name="event_Id", referencedColumnName = "event_Id", nullable=false)
-	@NotNull
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn	(name="event_Id", referencedColumnName = "eventId")
 	private Event eventId;
 	
-	@OneToMany
-	@JoinColumn ()
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "booking")
+	private List<Booking> booking;
 	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "ticket")
+	private List<Ticket> ticket;
+
 	@NotNull
 	private String startTime;
 	

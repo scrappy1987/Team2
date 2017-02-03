@@ -1,8 +1,12 @@
 package com.qa.student.service.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -20,6 +24,11 @@ public class Event {
 	
 	@NotNull
 	private String Duration;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "showing")
+	private List<Showing> showing;
+	
+	
 	
 	public Event(){}
 	

@@ -1,9 +1,13 @@
 package com.qa.student.service.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 /*
@@ -16,19 +20,25 @@ public class Booking {
 	@Id
 	private long BookingId;
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "customer_id")
-	private long CustomerId;
-	
 	@NotNull
-	private long showingId;
+	private Customer CustomerId;
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn	(name="showing", referencedColumnName = "showing_Id", nullable=false)
+	private Showing showing;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "ticket")
+	private List<Ticket> ticket;
 	
 	public Booking(){}
 	
-	public Booking(long BookingId, long CustomerId, long showingId) {
+	
+	public Booking(long BookingId, Customer CustomerId, Showing showingId) {
 		this.BookingId = BookingId;
 		this.CustomerId = CustomerId;
-		this.showingId = showingId;
+		this.showing = showingId;
 		
 	}
 	
@@ -40,20 +50,20 @@ public class Booking {
 		BookingId = bookingId;
 	}
 
-	public long getCustomerId() {
+	public Customer getCustomerId() {
 		return CustomerId;
 	}
 
-	public void setCustomerId(long customerId) {
+	public void setCustomerId(Customer customerId) {
 		CustomerId = customerId;
 	}
 
-	public long getShowingId() {
-		return showingId;
+	public Showing getShowingId() {
+		return showing;
 	}
 
-	public void setShowingId(long showingId) {
-		this.showingId = showingId;
+	public void setShowingId(Showing showingId) {
+		this.showing = showingId;
 	}
 	
 	
