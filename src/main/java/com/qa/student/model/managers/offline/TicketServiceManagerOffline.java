@@ -1,8 +1,10 @@
 package com.qa.student.model.managers.offline;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.enterprise.inject.Alternative;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
@@ -15,7 +17,7 @@ import com.qa.student.util.TestData;
  * Author: Rupert Langford
 */
 
-@Default
+@Alternative
 @Stateless
 public class TicketServiceManagerOffline implements TicketServiceManager {
 	
@@ -25,7 +27,7 @@ public class TicketServiceManagerOffline implements TicketServiceManager {
 	@Override
 	public void CreateTicket(Ticket ticket)
 	{
-		
+
 	}
 
 	@Override
@@ -53,15 +55,27 @@ public class TicketServiceManagerOffline implements TicketServiceManager {
 	}
 
 	@Override
-	public Ticket findByType(SeatType type)
+	public Ticket findByTicketID(long ticketID)
 	{
 		List<Ticket> tickets = testData.getTickets();
 		for(Ticket ticket : tickets)
 		{
-			if(ticket.getType()== type)
+			if(ticket.getTicketId()== ticketID)
 				return ticket;
 		}
 		return null;
+	}
+	@Override
+	public List<Ticket> findByType(SeatType type)
+	{
+		List<Ticket> tickets = testData.getTickets();
+		List<Ticket> results = new ArrayList<Ticket>();
+		for(Ticket ticket : tickets)
+		{
+			if(ticket.getType()== type)
+				results.add(ticket);
+		}
+		return results;
 	}
 
 	@Override

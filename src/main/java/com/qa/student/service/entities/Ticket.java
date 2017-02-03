@@ -1,9 +1,9 @@
 package com.qa.student.service.entities;
 
 import javax.persistence.Entity;
-/*import javax.persistence.GeneratedValue;
-import javax.persistence.Id;*/
-
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.validation.constraints.NotNull;
 
 import com.qa.student.service.entities.enums.SeatType;
@@ -15,8 +15,24 @@ import com.qa.student.service.entities.enums.SeatType;
  */
 
 @Entity
-public class Ticket
-{
+@NamedQueries({
+	@NamedQuery(name="ticket_findBySeatType", query="SELECT t FROM Tickets t WHERE t.type=:type"),
+	@NamedQuery(name="ticket_readTicketSID", query="SELECT t FROM Tickets t WHERE t.showingID=:showingID"),
+	@NamedQuery(name="ticket_readTicketBID", query="SELECT t FROM Tickets t WHERE t.bookingID=:bookingID"),
+	@NamedQuery(name="ticket_findBySeat", query="SELECT t FROM Tickets t WHERE t.column=:column AND t.row=:row")
+	//@NamedQuery(name="ticket_readTicket", query="SELECT t FROM Tickets t WHERE t.showingOrBookingId=:showingOrBookingId")
+})
+public class Ticket {
+	public static final String findBySeatType = "ticket_findBySeatType";
+	public static final String readTicketSID = "ticket_readTicketSID";
+	public static final String readTicketBID = "ticket_readTicketBID";
+	public static final String readTicket = "ticket_readTicket";
+	public static final String findBySeat = "ticket_findBySeat";
+	
+	@Id
+	@NotNull
+	private Long ticketId;
+	
 	@NotNull
 	private Long showingId;
 	
@@ -30,8 +46,9 @@ public class Ticket
 	@NotNull
 	private SeatType type;
 
-	public Ticket(Long showingID, Long bookingID, int row, int column, SeatType type)
+	public Ticket(Long ticketID, Long showingID, Long bookingID, int row, int column, SeatType type)
 	{
+		this.ticketId = ticketID;
 		this.showingId = showingID;
 		this.bookingId = bookingID;
 		this.row = row;
@@ -39,6 +56,16 @@ public class Ticket
 		this.type = type;
 	}
 
+	public Long getTicketId()
+	{
+		return ticketId;
+	}
+	
+	public void setTicketId(Long ticketID)
+	{
+		this.ticketId = ticketID;
+	}
+	
 	public Long getshowingId() {
 		return showingId;
 	}

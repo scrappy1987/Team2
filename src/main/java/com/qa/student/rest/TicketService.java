@@ -1,10 +1,9 @@
 package com.qa.student.rest;
 
-//import java.util.List;
+import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-//import javax.persistence.EntityManager;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -51,10 +50,17 @@ public class TicketService
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Ticket getType(SeatType seat)
+	public List<Ticket> getType(SeatType seat)
 	{
-		Ticket result = ticketManager.findByType(seat);
+		List<Ticket> result = ticketManager.findByType(seat);
 		return result;
-		//final List<Ticket> results = em.createQuery("").getResultList();
+	}
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public Ticket getTicketByTicketID(long ticketID)
+	{
+		Ticket result = ticketManager.findByTicketID(ticketID);
+		return result;
 	}
 }
