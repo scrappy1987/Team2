@@ -1,9 +1,16 @@
 package com.qa.student.service.entities;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -20,7 +27,7 @@ public class Screen {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "screen_id")
+	@Column(name = "screen_Id")
 	private Long screenId;
 
 	@Column(name = "regularSeats")
@@ -35,13 +42,21 @@ public class Screen {
 	@NotNull
 	private ShowingTypes showingTypes;
 
+	@ManyToOne(cascade = CascadeType.ALL, fetch=FetchType.LAZY)
+	@JoinColumn(name = "venueId", referencedColumnName = "venueId")
+	private Venue venue;
+	
+	
+//	potentially unnecessary Map to list showings for each screen
+//	@OneToMany(fetch = FetchType.LAZY, mappedBy = "showing")
+//	private List<Showing> showing;
+
 	public Screen() {
 
 	}
 
 	public Screen(Long screenId, int noOfRegularSeats, int noOfPremiumSeats,
 			ShowingTypes showingTypes) {
-		super();
 		this.screenId = screenId;
 		this.noOfRegularSeats = noOfRegularSeats;
 		this.noOfPremiumSeats = noOfPremiumSeats;
@@ -52,32 +67,40 @@ public class Screen {
 		return screenId;
 	}
 
-	public void setScreenID(Long screenId) {
+	public void setScreenId(Long screenId) {
 		this.screenId = screenId;
-	}
-
-	public void setNoOfRegularSeats(int noOfRegularSeats) {
-		this.noOfRegularSeats = noOfRegularSeats;
 	}
 
 	public int getNoOfRegularSeats() {
 		return noOfRegularSeats;
 	}
 
-	public void setNoOfPremiumSeats(int noOfPremiumSeats) {
-		this.noOfPremiumSeats = noOfPremiumSeats;
+	public void setNoOfRegularSeats(int noOfRegularSeats) {
+		this.noOfRegularSeats = noOfRegularSeats;
 	}
 
 	public int getNoOfPremiumSeats() {
 		return noOfPremiumSeats;
 	}
 
-	public void setShowingTypes(ShowingTypes showingTypes) {
-		this.showingTypes = showingTypes;
+	public void setNoOfPremiumSeats(int noOfPremiumSeats) {
+		this.noOfPremiumSeats = noOfPremiumSeats;
 	}
 
 	public ShowingTypes getShowingTypes() {
 		return showingTypes;
+	}
+
+	public void setShowingTypes(ShowingTypes showingTypes) {
+		this.showingTypes = showingTypes;
+	}
+
+	public Venue getVenue() {
+		return venue;
+	}
+
+	public void setVenue(Venue venue) {
+		this.venue = venue;
 	}
 
 	@Override
@@ -118,8 +141,8 @@ public class Screen {
 
 	@Override
 	public String toString() {
-		return "Screen [screenID=" + screenId + ", noOfRegularSeats="
+		return "Screen [screenId=" + screenId + ", noOfRegularSeats="
 				+ noOfRegularSeats + ", noOfPremiumSeats=" + noOfPremiumSeats
-				+ ", showingTypes=" + showingTypes + "]";
+				+ ", showingTypes=" + showingTypes + ", venue=" + venue + "]";
 	}
 }

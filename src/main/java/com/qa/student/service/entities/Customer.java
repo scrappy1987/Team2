@@ -4,14 +4,16 @@ package com.qa.student.service.entities;
 * @AUTHOR: JAI KANABAR
 */ 
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 
@@ -36,6 +38,9 @@ public class Customer {
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="customer_address_id", referencedColumnName= "addressId")
 	private Address address;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "booking")
+	private List<Booking> booking;
 	
 	@Id
 	@GeneratedValue
