@@ -25,7 +25,7 @@ public class Event {
 	@NotNull
 	private String Duration;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "showing")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "eventId")
 	private List<Showing> showing;
 	
 	

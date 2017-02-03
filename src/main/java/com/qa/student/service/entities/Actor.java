@@ -26,7 +26,7 @@ public class Actor {
 	@Column(name = "actor_id")
 	private Long actorId;
 	
-	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "movie")
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "roles")
 	private List<Movie> movie;
 	
 	@NotNull

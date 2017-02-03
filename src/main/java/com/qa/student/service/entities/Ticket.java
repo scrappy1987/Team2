@@ -52,6 +52,8 @@ public class Ticket
 		this.column = column;
 		this.type = type;
 	}
+	
+	public Ticket (){}
 
 	public Showing getshowingId() {
 		return showingId;

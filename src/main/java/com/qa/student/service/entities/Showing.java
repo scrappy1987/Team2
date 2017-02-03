@@ -34,10 +34,10 @@ public class Showing
 	@JoinColumn	(name="event_Id", referencedColumnName = "eventId")
 	private Event eventId;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "booking")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "showing")
 	private List<Booking> booking;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "ticket")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "showingId")
 	private List<Ticket> ticket;
 
 	@NotNull

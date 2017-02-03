@@ -39,7 +39,7 @@ public class Customer {
 	@JoinColumn(name="customer_address_id", referencedColumnName= "addressId")
 	private Address address;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "booking")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "customerId")
 	private List<Booking> booking;
 	
 	@Id

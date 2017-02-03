@@ -23,13 +23,13 @@ public class Booking {
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "customer_id")
 	@NotNull
-	private Customer CustomerId;
+	private Customer customerId;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn	(name="showing", referencedColumnName = "showing_Id", nullable=false)
 	private Showing showing;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "ticket")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "bookingId")
 	private List<Ticket> ticket;
 	
 	public Booking(){}
@@ -37,7 +37,7 @@ public class Booking {
 	
 	public Booking(long BookingId, Customer CustomerId, Showing showingId) {
 		this.BookingId = BookingId;
-		this.CustomerId = CustomerId;
+		this.customerId = CustomerId;
 		this.showing = showingId;
 		
 	}
@@ -51,11 +51,11 @@ public class Booking {
 	}
 
 	public Customer getCustomerId() {
-		return CustomerId;
+		return customerId;
 	}
 
 	public void setCustomerId(Customer customerId) {
-		CustomerId = customerId;
+		customerId = customerId;
 	}
 
 	public Showing getShowingId() {
