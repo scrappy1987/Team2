@@ -51,8 +51,9 @@ public class MovieServiceTest {
 	
 	@Test
 	public void getAllMoviesJSONTest() {
-		
-		String result = testMovieService.getAllMoviesAsJSON();
+//		
+//		Mockito.
+//		String result = testMovieService.getAllMoviesAsJSON();
 		
 		
 	}
