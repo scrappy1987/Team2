@@ -15,37 +15,37 @@ import javax.validation.constraints.NotNull;
  */
 @Entity
 public class Booking {
-	
+
 	@NotNull
 	@Id
 	private long BookingId;
-	
-	@ManyToOne(fetch=FetchType.LAZY)
+
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "customer_id")
 	@NotNull
 	private Customer customerId;
-	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn	(name="showing", referencedColumnName = "showing_Id", nullable=false)
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "showing", referencedColumnName = "showingId", nullable = false)
 	private Showing showing;
-	
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "bookingId")
 	private List<Ticket> ticket;
-	
-	public Booking(){}
-	
-	
+
+	public Booking() {
+	}
+
 	public Booking(long BookingId, Customer CustomerId, Showing showingId) {
 		this.BookingId = BookingId;
 		this.customerId = CustomerId;
 		this.showing = showingId;
-		
+
 	}
-	
+
 	public long getBookingId() {
 		return BookingId;
 	}
-	
+
 	public void setBookingId(long bookingId) {
 		BookingId = bookingId;
 	}
@@ -65,6 +65,5 @@ public class Booking {
 	public void setShowingId(Showing showingId) {
 		this.showing = showingId;
 	}
-	
-	
+
 }

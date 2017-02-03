@@ -27,7 +27,6 @@ public class Screen {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "screen_Id")
 	private Long screenId;
 
 	@Column(name = "regularSeats")
