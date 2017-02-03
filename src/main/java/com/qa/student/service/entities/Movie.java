@@ -1,8 +1,14 @@
 package com.qa.student.service.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
 
 /*
@@ -26,6 +32,11 @@ public class Movie {
 	private String duration;
 	@NotNull
 	private String certification;
+	
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinTable(name = "roles", joinColumns=@JoinColumn(name="movie_id", referencedColumnName="movieId"),
+		      inverseJoinColumns=@JoinColumn(name="actor", referencedColumnName="actorId"))
+	private List<Actor> roles;
 	
 	public Movie() {
 		title = "";

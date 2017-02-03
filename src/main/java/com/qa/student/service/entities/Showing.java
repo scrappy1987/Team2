@@ -1,10 +1,14 @@
 package com.qa.student.service.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 /*
@@ -16,22 +20,26 @@ public class Showing
 	@Id
 	@GeneratedValue
 	private int showingId;
-	
-	@ManyToOne
-	@JoinColumn	(name="screen_Id", referencedColumnName = "screen_Id",nullable=false)
+
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn	(name="screen_Id", referencedColumnName = "screenId",nullable=false)
 	@NotNull
 	private Screen screenId;
 
-	@ManyToOne
-	@JoinColumn	(name="movie_Id", referencedColumnName = "movie_Id",nullable=false)
-	@NotNull
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn	(name="movie_Id", referencedColumnName = "movieId")
 	private Movie movieId;
 	
-	@ManyToOne
-	@JoinColumn	(name="event_Id", referencedColumnName = "event_Id", nullable=false)
-	@NotNull
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn	(name="event_Id", referencedColumnName = "eventId")
 	private Event eventId;
 	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "showing")
+	private List<Booking> booking;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "showingId")
+	private List<Ticket> ticket;
+
 	@NotNull
 	private String startTime;
 	

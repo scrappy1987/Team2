@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+
 import javax.validation.constraints.NotNull;
 
 import com.qa.student.service.entities.enums.SeatType;
@@ -38,17 +39,18 @@ public class Ticket {
 	
 	@NotNull
 	private Long bookingId;
-	
+
 	@NotNull
 	private int row;
 	@NotNull
 	private int column;
 	@NotNull
 	private SeatType type;
-
+	
 	public Ticket(Long ticketID, Long showingID, Long bookingID, int row, int column, SeatType type)
 	{
 		this.ticketId = ticketID;
+
 		this.showingId = showingID;
 		this.bookingId = bookingID;
 		this.row = row;
@@ -79,6 +81,7 @@ public class Ticket {
 	}
 
 	public void setBookingID(Long bookingID) {
+
 		this.bookingId = bookingID;
 	}
 

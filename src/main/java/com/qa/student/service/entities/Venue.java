@@ -1,8 +1,11 @@
 package com.qa.student.service.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -12,8 +15,10 @@ public class Venue
 	@GeneratedValue
 	private int venueId;
 	
-	@NotNull
-	private int addressId;
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="venue_address_id", referencedColumnName= "addressId")
+	private Address address;
+	
 	
 	@NotNull
 	private String name;
@@ -26,12 +31,12 @@ public class Venue
 		this.venueId = venueId;
 	}
 
-	public int getAddressId() {
-		return addressId;
+	public Address getAddressId() {
+		return address;
 	}
 
-	public void setAddressId(int addressId) {
-		this.addressId = addressId;
+	public void setAddressId(Address addressId) {
+		this.address = addressId;
 	}
 
 	public String getName() {
@@ -41,5 +46,4 @@ public class Venue
 	public void setName(String name) {
 		this.name = name;
 	}
-
 }

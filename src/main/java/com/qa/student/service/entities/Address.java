@@ -1,5 +1,9 @@
 package com.qa.student.service.entities;
 
+/*
+*Author: Trevell Paul
+*
+*/
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -24,15 +28,16 @@ public class Address {
 		
 	}
 	public Address(String firstLine, String secondLine, String townCity, String county, String postcode) {
-		firstLine = firstLine;
-		secondLine = secondLine;
-		townCity = townCity;
-		county = county;
-		postcode = postcode;
+		this.firstLine = firstLine;
+		this.secondLine = secondLine;
+		this.townCity = townCity;
+		this.county = county;
+		this.postcode = postcode;
 	}
+	
 	public Address(String firstLine, String postcode) {
-		firstLine = firstLine;
-		postcode = postcode;
+		this.firstLine = firstLine;
+		this.postcode = postcode;
 	}
 	
 	//methods
@@ -40,33 +45,30 @@ public class Address {
 		return firstLine;
 	}
 	public void setFirstLine(String firstLine) {
-		firstLine = firstLine;
+		this.firstLine = firstLine;
 	}
 	public String getSecondLine() {
 		return secondLine;
 	}
 	public void setSecondLine(String secondLine) {
-		secondLine = secondLine;
+		this.secondLine = secondLine;
 	}
 	public String getTownCity() {
 		return townCity;
 	}
 	public void setTownCity(String townCity) {
-		townCity = townCity;
+		this.townCity = townCity;
 	}
 	public String getCounty() {
 		return county;
 	}
 	public void setCounty(String county) {
-		county = county;
+		this.county = county;
 	}
 	public String getPostcode() {
 		return postcode;
 	}
 	public void setPostcode(String postcode) {
-		postcode = postcode;
+		this.postcode = postcode;
 	}
-	
-	
-
 }
