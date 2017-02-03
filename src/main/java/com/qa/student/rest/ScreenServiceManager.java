@@ -1,13 +1,8 @@
 package com.qa.student.rest;
 
-import java.util.List;
-
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
-
 import com.qa.student.service.entities.Screen;
-import com.qa.student.service.entities.Showing;
 
 /**
  * Screen class responsible for communicating with DB to perform operations on
