@@ -28,7 +28,7 @@ public class Ticket
 	private long ticketId;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="showing_id")
+	@JoinColumn(name="showingid")
 	@NotNull
 	private Showing showingId;
 	
